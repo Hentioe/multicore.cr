@@ -1,18 +1,18 @@
 module Multicore::Cluster
   extend self
 
-  IOInherit = Process::Redirect::Inherit
+  IO_INHERIT = Process::Redirect::Inherit
 
   def fork(env : Hash)
     env["FORKED"] = "1"
     Process.fork {
       Process.exec(
-        command = PROGRAM_NAME,
-        args = ARGV,
+        command: PROGRAM_NAME,
+        args: ARGV,
         env: env,
-        input: IOInherit,
-        output: IOInherit,
-        error: IOInherit
+        input: IO_INHERIT,
+        output: IO_INHERIT,
+        error: IO_INHERIT
       )
     }
   end

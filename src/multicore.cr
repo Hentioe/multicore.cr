@@ -1,7 +1,7 @@
 require "./multicore/**"
 
 module Multicore
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 
   def self.startup(n, &block)
     if n < 0
